@@ -1,0 +1,35 @@
+*{
+    font-family: 'Titillium Web', sans-serif;
+}
+#container{
+    // color: #052c54;
+    // border: 1px solid black;
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    .img-container{
+        width: 100%;
+        height: auto;
+        img{
+            width: 100%;
+            max-height:15rem ;
+        }
+    }
+
+    .texto{
+        letter-spacing: 3px;
+        text-align: center;
+        h1{
+            text-align: center;
+        }
+    }
+    .parrafo {
+        p{
+            text-align: justify;
+        }
+    }
+
+    .qr-feliz{
+        border-radius: 30%;
+    }
+}
