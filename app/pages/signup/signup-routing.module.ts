@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { GenerarQrPage } from './generar-qr.page';
+import { SignupPage } from './signup.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: GenerarQrPage
-  },
-  
-  
+    component: SignupPage
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class GenerarQrPageRoutingModule {}
+export class SignupPageRoutingModule {}

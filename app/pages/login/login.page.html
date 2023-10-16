@@ -1,3 +1,4 @@
+
 <ion-content [fullscreen]="true">
   <div class="container">
     <div class="title">
@@ -8,12 +9,47 @@
     </div>
     
       <div class="form">
-        <label for="">Usuario</label><br>
-        <input type="text" placeholder=""><br><br>
-        <label for="">Contraseña</label><br>
-        <input type="password" placeholder="">
+        <form action="" (ngSubmit)="onSubmit()">
+          
+          <!-- INPUT DE PRUEBA  -->
+          <div class="input-docente-div" style="align-items: center; ">
+            <div style="display: flex;">
+              <ion-icon name="mail-outline" size="large" style="border: 0px solid black;"></ion-icon>
+              <input [(ngModel)]="email"  type="text" placeholder="Email" name="email"><br><br>
+            </div>
+            <div class="input-error" *ngIf="emailInvalido">
+              El email no existe.
+            </div>
+          </div>
+          <div class="input-docente-div" style="align-items: center; ">
+            <div style="display: flex;">
+              <ion-icon name="shield-outline" size="large" style="border: 0px solid black;"></ion-icon>
+              <input [(ngModel)]="contrasena" type="password" placeholder="Contraseña" name="contrasena"><br><br>
+            </div>
+            <div class="input-error" *ngIf="contrasenaInvalida">
+              La contraseña no es correcta.
+            </div>
+          </div>
+
+          <!-- <label for="">Email</label><br>
+          <input [(ngModel)]="email" name="email"  type="text" placeholder="">
+          <div class="input-error" *ngIf="emailInvalido">
+            El email no existe.
+          </div>
+          
+          <label for="">Contraseña</label><br>
+          <input [(ngModel)]="contrasena" name="constrasena" type="password" placeholder="">
+          <div class="input-error" *ngIf="contrasenaInvalida">
+            La contraseña es incorrecta.
+          </div> -->
+          <button class="btn-login" style="margin-top: 0rem; font-weight: bold; font-size: 1rem; color: #052c54;"  type="submit" >INICIAR SESIÓN</button>
+        </form>
+        
       </div>
-    
-      <div class="btn-login" [routerLink]="['/about']">Iniciar Sesión</div>
+      <div class="boton-registro">
+        <p style="display: inline;">¿Aún no tienes una cuenta? </p>
+        <span [routerLink]="['/signup']">Registrarse</span>
+      </div>
+      <!-- <div class="btn-login" [routerLink]="['/about']">Iniciar Sesión</div> -->
   </div>
 </ion-content>

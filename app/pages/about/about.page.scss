@@ -24,6 +24,8 @@
         }
     }
     .parrafo {
+        max-width: 50rem;
+        margin: auto;
         p{
             text-align: justify;
         }
@@ -32,4 +34,9 @@
     .qr-feliz{
         border-radius: 30%;
     }
+}
+
+.list-beneficios{
+    max-width: 50rem;
+    margin: auto;
 }

@@ -1,7 +1,8 @@
 .container{
+    padding-top: 3rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     font-family: 'Roboto', sans-serif;
     min-height: 100vh;
@@ -23,7 +24,7 @@
     font-size: 2rem;
     display:flex;
     flex-direction: column;
-    align-items: center;
+    //align-items: center;
     letter-spacing: 6px;
     // border: 1px solid white;
     font-family: 'Titillium Web', sans-serif;
@@ -38,6 +39,19 @@
     }
 }
 
+ion-checkbox{
+    font-size: 1rem;
+    display: inline-block ;
+    color:#f2ba27 ;
+    max-width: 10px;
+    justify-content: center;
+}
+ion-label{
+    color: #f2ba27;
+    font-family:'Roboto', sans-serif; ;
+    letter-spacing: 3px;
+
+}
 .form {
     color: #f2ba27;
     letter-spacing: 3px;
@@ -64,23 +78,22 @@
     cursor: pointer;
 }
 
+.input-docente-div{
+    margin-bottom: 1.5rem;
+}
 
 .input-error{
     font-size: 12px;
     color: red;
     display: block;
-    margin:0.5rem 0 0 2.75rem;
-}
-
-.input-docente-div{
-    margin-bottom: 1.5rem;  
+    margin:0.5rem  0 0  2.5rem;
 }
 
 .boton-registro{
     color: white;
     font-size: 0.75rem;
     letter-spacing: 0;
-    
+    margin-bottom: 2rem;
     p{
         margin: 0;
     }

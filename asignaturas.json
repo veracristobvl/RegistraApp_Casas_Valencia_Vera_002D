@@ -1,0 +1,62 @@
+{
+    "asignaturas": [
+      {
+        "id": 1,
+        "name":"Matemáticas" 
+      },
+      {
+        "id": 2,
+        "name":"Lenguaje y Comunicación" 
+      },
+      {
+        "id": 3,
+        "name":"Ciencias Naturales" 
+      },
+      {
+        "id": 4,
+        "name":"Ciencias Sociales" 
+      },
+      {
+        "id": 5,
+        "name":"Educación Física" 
+      },
+      {
+        "id": 6,
+        "name":"Artes" 
+      },
+      {
+        "id": 7,
+        "name":"Música" 
+      },
+      {
+        "id": 8,
+        "name":"Historia" 
+      },
+      {
+        "id": 9,
+        "name":"Inglés" 
+      },
+      {
+        "id": 10,
+        "name":"Química" 
+      },
+      {
+        "id": 11,
+        "name":"Física" 
+      },
+      {
+        "id": 12,
+        "name":"Religión" 
+      },
+      {
+        "id": 13,
+        "name":"Filosofía" 
+      },
+      {
+        "id": 14,
+        "name":"Tecnología e Informática" 
+      }
+      
+      
+    ]
+  }

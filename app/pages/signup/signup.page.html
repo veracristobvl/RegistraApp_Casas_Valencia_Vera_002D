@@ -1,0 +1,205 @@
+
+<ion-content [fullscreen]="true">
+  <!-- CONTAINER GENERAL  -->
+  <div class="container">
+    <!-- TITULO -->
+    <div class="title">
+      <p>REGISTRO</p>
+    </div>
+
+      <!-- OPCIONES DE DOCENTE/ALUMNO -->
+      <div>
+        <div  
+          *ngFor="let option of options" 
+          style="margin-bottom: 1rem; display: flex;vertical-align: middle;justify-content: space-between;" >
+          <ion-label slot="start" style="margin: 0;display: inline;">{{option.name}}</ion-label>
+          <ion-checkbox  slot="end" [(ngModel)]="option.isChecked"  (click)="unCheck(option.name)" style="vertical-align: middle; margin-left: auto;"></ion-checkbox>
+        </div>
+      </div>
+        
+      <!-- FORMULARIO DE DOCENTES -->
+      <div *ngIf="options[0].isChecked" class="form">
+        
+        <form action="" [formGroup]="registroForm" (ngSubmit)="onSubmit()">          
+          
+          <!-- INPUT DE NOMBRE -->
+          <div class="input-docente-div" style="align-items: center; ">
+            <div style="display: flex;">
+              <ion-icon name="person-outline" size="large" style="border: 0px solid black;"></ion-icon>
+              <input  [(ngModel)]="newDocente.nombre" formControlName="nombre" type="text" placeholder="Nombre" (input)="onChange()"><br><br>
+            </div>
+            <div class="input-error" *ngIf="registroForm.get('nombre').hasError('required') && registroForm.get('nombre').touched">
+              El nombre es obligatorio.
+            </div>
+          </div>
+      
+          <!-- INPUT DE APELLIDO -->
+          <div class="input-docente-div" style="align-items: center; ">
+            <div style="display: flex;">
+              <ion-icon name="person-outline" size="large" style="border: 0px solid black;"></ion-icon>
+              <input [(ngModel)]="newDocente.apellido" formControlName="apellido" type="text" placeholder="Apellido" (input)="onChange()"><br><br>
+            </div>
+            <div class="input-error" *ngIf="registroForm.get('apellido').hasError('required') && registroForm.get('apellido').touched">
+              El apellido es obligatorio.
+            </div>
+          </div>
+          
+          <!-- INPUT DE EMAIL -->
+          <div class="input-docente-div" style="align-items: center;">
+            <div style="display: flex;">
+              <ion-icon name="mail-outline" size="large" style="border: 0px solid black;  "></ion-icon>
+              <input [(ngModel)]="newDocente.email"  formControlName="email" type="text" placeholder="Email" (input)="onChange()"><br><br>
+            </div>
+            <div class="input-error" *ngIf="registroForm.get('email').hasError('required') && registroForm.get('email').touched">
+              El email es obligatorio.
+            </div>
+            <div class="input-error" *ngIf="registroForm.get('email').hasError('email') && registroForm.get('email').touched">
+              Ingresa un email valido.
+            </div>
+          </div>
+        
+          <!-- INPUT DE TELEFONO -->
+          <div class="input-docente-div" style="align-items: center; ">
+            <div style="display: flex;">
+              <ion-icon name="call-outline" size="large" style="border: 0px solid black;  "></ion-icon>
+              <input [(ngModel)]="newDocente.telefono" formControlName="telefono" type="number" placeholder="Telefono" (input)="onChange()"><br><br>
+            </div>
+            <span class="input-error" *ngIf="registroForm.get('telefono').hasError('pattern') && registroForm.get('telefono').touched">
+              Ingresa un telefono valido.
+            </span>
+            <span class="input-error" *ngIf="registroForm.get('telefono').hasError('required') && registroForm.get('telefono').touched">
+              El telefono es obligatorio.
+            </span>
+          </div>
+          
+          <!-- INPUT DE CONTRASEÑA -->
+          <div class="input-docente-div" style="align-items: center; ">
+            <div style="display: flex;">
+              <ion-icon name="shield-half-outline" size="large" style="border: 0px solid black;  "></ion-icon>
+              <input [(ngModel)]="newDocente.contrasena" formControlName="contraseña" type="password" placeholder="Password" (input)="onChange()">
+            </div>
+            <span class="input-error" *ngIf="registroForm.get('contraseña').hasError('minlength') && registroForm.get('contraseña').touched">
+              Ingresa una contraseña valida.
+            </span>
+            <span class="input-error" *ngIf="registroForm.get('contraseña').hasError('required') && registroForm.get('contraseña').touched">
+              La contraseña es obligatoria.
+            </span>
+          </div> 
+       
+
+          <!-- INPUT DE ASIGNATURA 1 -->
+          <div class="input-docente-div" style="align-items: center;">
+            <div style="display: flex;">
+              <ion-icon name="book-outline" size="large" style="border: 0px solid black;  "></ion-icon>
+              <input   [(ngModel)]="newDocente.asignatura1" formControlName="asignatura1" type="text" list="asignaturas1" (input)="onChange()" (input)="onAsignatura1Change()" placeholder="Asignatura 1" >
+              <datalist id="asignaturas1" >
+                <option *ngFor="let asignatura of asignaturasInput1" [value]="asignatura" >
+                </datalist>
+            </div>
+            <span class="input-error" *ngIf="registroForm.get('asignatura1').hasError('required') && registroForm.get('asignatura1').touched">
+              El campo Asignatura 1 es obligatorio.
+            </span>
+            
+          </div>
+          
+          <!-- INPUT DE ASIGNATURA 2 -->
+            <div class="input-docente-div" style="align-items: center;" *ngIf="newDocente.asignatura1 ">
+              <div style="display: flex;">
+                <ion-icon name="book-outline" size="large" style="border: 0px solid black;  "></ion-icon>
+                <input formControlName="asignatura2"  [(ngModel)]="newDocente.asignatura2" type="text" list="asignaturas2" placeholder="Asignatura 2" (input)="onChange()" >
+                <datalist id="asignaturas2" >
+                  <option *ngFor="let asignatura of opcionesAsignaturas2" [value]="asignatura" >
+                </datalist>
+              </div>
+              <span class="input-error" *ngIf="registroForm.get('asignatura2').hasError('required') && registroForm.get('asignatura2').touched">
+                El campo Asignatura 2 es obligatorio.
+              </span>
+            </div>
+            
+          
+          
+          <button class="btn-login"  type="submit" [disabled]="!formularioValido">Registrarse</button>
+        </form>
+        
+      </div>
+      
+
+      <!-- FORMULARIO DE ALUMNOS -->
+      <div *ngIf="options[1].isChecked" class="form">
+        <form action="" [formGroup]="registroForm" (ngSubmit)="onSubmit()">          
+          
+          <!-- INPUT DE NOMBRE -->
+          <div class="input-docente-div" style="align-items: center; ">
+            <div style="display: flex;">
+              <ion-icon name="person-outline" size="large" style="border: 0px solid black;"></ion-icon>
+              <input  formControlName="nombre" type="text" placeholder="Nombre"><br><br>
+            </div>
+            <div class="input-error" *ngIf="registroForm.get('nombre').hasError('required') && registroForm.get('nombre').touched">
+              El nombre es obligatorio.
+            </div>
+          </div>
+      
+          <!-- INPUT DE APELLIDO -->
+          <div class="input-docente-div" style="align-items: center; ">
+            <div style="display: flex;">
+              <ion-icon name="person-outline" size="large" style="border: 0px solid black;"></ion-icon>
+              <input formControlName="apellido" type="text" placeholder="Apellido"><br><br>
+            </div>
+            <div class="input-error" *ngIf="registroForm.get('apellido').hasError('required') && registroForm.get('apellido').touched">
+              El apellido es obligatorio.
+            </div>
+          </div>
+          
+          <!-- INPUT DE EMAIL -->
+          <div class="input-docente-div" style="align-items: center;">
+            <div style="display: flex;">
+              <ion-icon name="mail-outline" size="large" style="border: 0px solid black;  "></ion-icon>
+              <input formControlName="email" type="text" placeholder="Email"><br><br>
+            </div>
+            <div class="input-error" *ngIf="registroForm.get('email').hasError('required') && registroForm.get('email').touched">
+              El email es obligatorio.
+            </div>
+            <div class="input-error" *ngIf="registroForm.get('email').hasError('email') && registroForm.get('email').touched">
+              Ingresa un email valido.
+            </div>
+          </div>
+        
+          <!-- INPUT DE TELEFONO -->
+          <div class="input-docente-div" style="align-items: center; ">
+            <div style="display: flex;">
+              <ion-icon name="call-outline" size="large" style="border: 0px solid black;  "></ion-icon>
+              <input formControlName="telefono" type="number" placeholder="Telefono"><br><br>
+            </div>
+            <span class="input-error" *ngIf="registroForm.get('telefono').hasError('pattern') && registroForm.get('telefono').touched">
+              Ingresa un telefono valido.
+            </span>
+            <span class="input-error" *ngIf="registroForm.get('telefono').hasError('required') && registroForm.get('telefono').touched">
+              El telefono es obligatorio.
+            </span>
+          </div>
+          
+          <!-- INPUT DE CONTRASEÑA -->
+          <div class="input-docente-div" style="align-items: center; ">
+            <div style="display: flex;">
+              <ion-icon name="shield-half-outline" size="large" style="border: 0px solid black;  "></ion-icon>
+              <input formControlName="contraseña" type="password" placeholder="Password">
+            </div>
+            <span class="input-error" *ngIf="registroForm.get('contraseña').hasError('minlength') && registroForm.get('contraseña').touched">
+              Ingresa una contraseña valida.
+            </span>
+            <span class="input-error" *ngIf="registroForm.get('contraseña').hasError('required') && registroForm.get('contraseña').touched">
+              La contraseña es obligatoria.
+            </span>
+          </div> 
+          
+          <button class="btn-login"  type="submit" >Registrarse</button>
+          <!-- <div class="btn-login" [routerLink]="['/about']" ><button type="submit" style="">Registrarse</button></div> -->
+        </form>
+      </div>
+      <div class="boton-registro">
+        <p style="display: inline;">Ya tienes una cuenta? </p>
+        <span [routerLink]="['/login']">Iniciar Sesión</span>
+      </div>
+  </div>
+
+</ion-content>

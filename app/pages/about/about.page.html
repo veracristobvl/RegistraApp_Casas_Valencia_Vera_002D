@@ -1,32 +1,51 @@
-  
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      
+    </ion-buttons>
+    
+  </ion-toolbar> 
+ </ion-header> 
 
-<ion-content [fullscreen]="true" id="main-content">
-  
+
+<ion-content [fullscreen]="true" id="">
   
   
   <div id="container">
     
     <div class="texto">
+      <h1 style="font-weight: bold;">Hola {{username}}!</h1>
       <h1>En RegistrApp Tenemos <strong>PRESENTE</strong> <br> tus necesidades</h1>
     </div>
-    <div class="img-container">
-      <img src="../../../assets/img/niño-presente.jpg" alt="">
-    </div>
-    <div class="parrafo">
-      <p>
-        En <strong>RegistrApp</strong>, estamos comprometidos en simplificar y optimizar el proceso de registro de asistencia mediante la tecnología de <strong>códigos QR</strong>. Nuestra misión es proporcionar a organizaciones y eventos una solución eficiente y segura para llevar un control preciso de la asistencia. Con años de experiencia en el desarrollo de soluciones tecnológicas innovadoras, nuestro equipo se enorgullece de ofrecer una herramienta confiable y fácil de usar que beneficia tanto a anfitriones como a asistentes. Estamos dedicados a brindar un servicio excepcional y a seguir evolucionando para satisfacer las necesidades cambiantes de nuestros usuarios en todo momento.
-      </p>
-    </div>
+    
+    <ion-grid class="grid">
+      <ion-row>
+        <ion-col size="12">
+          
+          <div class="img-container">
+            <img src="../../../assets/img/niño-presente.jpg" alt="">
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+      
+      <div class="parrafo">
+        <p>
+          En <strong>RegistrApp</strong>, estamos comprometidos en simplificar y optimizar el proceso de registro de asistencia mediante la tecnología de <strong>códigos QR</strong>. Nuestra misión es proporcionar a organizaciones y eventos una solución eficiente y segura para llevar un control preciso de la asistencia. Con años de experiencia en el desarrollo de soluciones tecnológicas innovadoras, nuestro equipo se enorgullece de ofrecer una herramienta confiable y fácil de usar que beneficia tanto a anfitriones como a asistentes. Estamos dedicados a brindar un servicio excepcional y a seguir evolucionando para satisfacer las necesidades cambiantes de nuestros usuarios en todo momento.
+        </p>
+      </div>
+    
 
     <div class="list-beneficios">
       <h1>Beneficios de <strong>RegistrApp</strong></h1>
-      <ion-grid class="grid">
+      <ion-grid class="grid" style="justify-content: center;">
         <ion-row>
-          <ion-col size="3" style="display: flex; align-items: center;">
-            <img class="qr-feliz" src="../../../assets/img/qr-feliz.jpg" alt="" style="height: 60%;">
+          <ion-col size="3" size-lg="3" style="display: flex; align-items: center;">
+            <img class="qr-feliz" src="../../../assets/img/qr-feliz.jpg" alt="" style="height: 60%; max-height: 10rem;">
           </ion-col>
-          <ion-col size=9>
-            
+          
+          <ion-col size=9 size-lg="9">
             <ion-list>
               <ion-item>
                 <ion-label style="font-size: 0.75rem; margin: 0 !important;">Eficiencia y Ahorro de Tiempo</ion-label>
@@ -48,4 +67,6 @@
       </ion-grid>
     </div>
   </div>  
+  
 </ion-content>
+<!-- <ion-router-outlet id="main-content"></ion-router-outlet> -->
